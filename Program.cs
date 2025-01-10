@@ -4,31 +4,32 @@ internal class Program
 {
     static void Main(string[] args)
     {
-        static void Lab5a()
+        static void Lab5b()
         {
             try
             {
-                var rect1 = new Rectangle(10, 10, 20, 20);
-                Console.WriteLine(rect1);
+                var map = new PP_Simulator._1.Maps.SmallSquareMap(10);
 
-                var rect2 = new Rectangle(new Point(20, 20), new Point(10, 10));
-                Console.WriteLine(rect2);
+                var point = new Point(5, 5);
+                Console.WriteLine(map.Exist(point)); // True
+                Console.WriteLine(map.Next(point, Direction.Up)); // (5, 6)
+                Console.WriteLine(map.Next(point, Direction.Down)); // (5, 4)
+                Console.WriteLine(map.Next(point, Direction.Left)); // (4, 5)
+                Console.WriteLine(map.Next(point, Direction.Right)); // (6, 5)
 
-                var rect3 = new Rectangle(10, 10, 10, 20); // Exception
+                var edgePoint = new Point(9, 9);
+                Console.WriteLine(map.Next(edgePoint, Direction.Up)); // (9, 9) - Out of bounds
+
+                var diagonalPoint = new Point(8, 8);
+                Console.WriteLine(map.NextDiagonal(diagonalPoint, Direction.Right)); // (9, 7)
             }
-            catch (ArgumentException ex)
+            catch (ArgumentOutOfRangeException ex)
             {
                 Console.WriteLine($"Exception caught: {ex.Message}");
             }
-
-            var rect = new Rectangle(10, 10, 20, 20);
-            var p1 = new Point(15, 15);
-            var p2 = new Point(25, 25);
-
-            Console.WriteLine($"Rectangle contains {p1}: {rect.Contains(p1)}");
-            Console.WriteLine($"Rectangle contains {p2}: {rect.Contains(p2)}");
         }
-        Lab5a();
+
+        Lab5b();
     }
 }
 
