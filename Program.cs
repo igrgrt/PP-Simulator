@@ -4,27 +4,26 @@ internal class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Starting Simulator!\n");
-        static void Lab3b()
+        static void Lab4b()
         {
-            Creature c = new("Shrek", 7);
-            c.SayHi();
-
-            Console.WriteLine("\n* Up");
-            c.Go(Direction.Up);
-
-            Console.WriteLine("\n* Right, Left, Left, Down");
-            Direction[] directions = {
-        Direction.Right, Direction.Left, Direction.Left, Direction.Down
+            object[] myObjects = {
+        new Animals() { Description = "dogs"},
+        new Birds { Description = "  eagles ", Size = 10 },
+        new Elf("e", 15, -3),
+        new Orc("morgash", 6, 4)
     };
-            c.Go(directions);
-
-            Console.WriteLine("\n* LRL");
-            c.Go("LRL");
-
-            Console.WriteLine("\n* xxxdR lyyLTyu");
-            c.Go("xxxdR lyyLTyu");
+            Console.WriteLine("\nMy objects:");
+            foreach (var o in myObjects) Console.WriteLine(o);
+            /*
+                My objects:
+                ANIMALS: Dogs <3>
+                BIRDS: Eagles (fly+) <10>
+                ELF: E## [10][0]
+                ORC: Morgash [6][4]
+            */
         }
-        Lab3b();
+
+        Lab4b();
     }
 }
+
