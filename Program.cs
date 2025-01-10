@@ -4,26 +4,31 @@ internal class Program
 {
     static void Main(string[] args)
     {
-        static void Lab4b()
+        static void Lab5a()
         {
-            object[] myObjects = {
-        new Animals() { Description = "dogs"},
-        new Birds { Description = "  eagles ", Size = 10 },
-        new Elf("e", 15, -3),
-        new Orc("morgash", 6, 4)
-    };
-            Console.WriteLine("\nMy objects:");
-            foreach (var o in myObjects) Console.WriteLine(o);
-            /*
-                My objects:
-                ANIMALS: Dogs <3>
-                BIRDS: Eagles (fly+) <10>
-                ELF: E## [10][0]
-                ORC: Morgash [6][4]
-            */
-        }
+            try
+            {
+                var rect1 = new Rectangle(10, 10, 20, 20);
+                Console.WriteLine(rect1);
 
-        Lab4b();
+                var rect2 = new Rectangle(new Point(20, 20), new Point(10, 10));
+                Console.WriteLine(rect2);
+
+                var rect3 = new Rectangle(10, 10, 10, 20); // Exception
+            }
+            catch (ArgumentException ex)
+            {
+                Console.WriteLine($"Exception caught: {ex.Message}");
+            }
+
+            var rect = new Rectangle(10, 10, 20, 20);
+            var p1 = new Point(15, 15);
+            var p2 = new Point(25, 25);
+
+            Console.WriteLine($"Rectangle contains {p1}: {rect.Contains(p1)}");
+            Console.WriteLine($"Rectangle contains {p2}: {rect.Contains(p2)}");
+        }
+        Lab5a();
     }
 }
 
