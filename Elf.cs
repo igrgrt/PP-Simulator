@@ -27,18 +27,10 @@ namespace PP_Simulator._1
         }
 
         private int singCounter = 0;
-        public void Sing()
-        {
-            Console.WriteLine($"{Name} is singing.");
-            singCounter++;
-            if (singCounter % 3 == 0)
-            {
-                Agility++;
-            }
-        }
+        public string Sing() => "The elf is singing.";
 
         public override int Power => (8 * Level) + (2 * Agility);
-        public override void SayHi() => Console.WriteLine($"Hi, I'm {Name}, my level is {Level}, my agility is {Agility}.");
+        public override string Greeting() => $"Hi, I'm {Name}, my level is {Level}, my agility is {Agility}.";
         public override string Info => $"{Name} [{Level}][{Agility}]";
 
     }
